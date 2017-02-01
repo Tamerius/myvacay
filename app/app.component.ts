@@ -1,36 +1,25 @@
 import { Component } from '@angular/core';
-
-export class Vacation {
-  id: number;
-  name: string;
-}
-
+import { Vacation } from './vacation';
 const VACATIONS: Vacation[] = [
-  { id: 11, name: 'Overloon, The Netherlands' },
-  { id: 12, name: 'Paris, France' },
-  { id: 13, name: 'Terschelling, The Netherlands' },
+  { id: 11, name: 'Kos, Greece' },
+  { id: 12, name: 'Terschelling, The Netherlands' },
+  { id: 13, name: 'Paris, France' },
   { id: 14, name: 'Berlin, Germany' }
 ];
-
 @Component({
   selector: 'my-app',
-  template:`
+  template: `
+    <h1>{{title}}</h1>
+  	<h2>My Vacation Options</h2>
     <ul class="vacations">
       <li *ngFor="let vacation of vacations"
-        [class.selected]="vacation === selectedvacation"
+        [class.selected]="vacation === selectedVacation"
         (click)="onSelect(vacation)">
         <span class="badge">{{vacation.id}}</span> {{vacation.name}}
       </li>
     </ul>
-    <div *ngIf="selectedVacation">
-      <h2>{{selectedVacation.name}} details!</h2>
-      <div><label>id: </label>{{selectedVacation.id}}</div>
-      <div>
-        <label>name: </label>
-        <input [(ngModel)]="selectedVacation.name" placeholder="name"/>
-      </div>
-    </div>
-    `,
+    <my-vacation-detail [vacation]="selectedVacation"></my-vacation-detail>
+  `,
   styles: [`
     .selected {
       background-color: #CFD8DC !important;
@@ -40,7 +29,7 @@ const VACATIONS: Vacation[] = [
       margin: 0 0 2em 0;
       list-style-type: none;
       padding: 0;
-      width: 20em;
+      width: 15em;
     }
     .vacations li {
       cursor: pointer;
@@ -81,9 +70,8 @@ const VACATIONS: Vacation[] = [
     }
   `]
 })
-
 export class AppComponent {
-  title = 'My Vacation';
+  title = 'My Vacation Options';
   vacations = VACATIONS;
   selectedVacation: Vacation;
   onSelect(vacation: Vacation): void {
