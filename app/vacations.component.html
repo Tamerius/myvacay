@@ -6,7 +6,10 @@
   <div class="space">
     <label>Reden:</label> <input #vacationReason />
   </div>
-  <button (click)="add(vacationName.value, vacationReason.value); vacationName.value=''; vacationReason.value=''">
+  <div class="space">
+    <label>Nadeel:</label> <input #vacationDisadvantage />
+  </div>
+  <button (click)="add(vacationName.value, vacationReason.value, vacationDisadvantage.value); vacationName.value=''; vacationReason.value=''; vacationDisadvantage.value='';">
     Toevoegen
   </button>
 </div>
