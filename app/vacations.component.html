@@ -1,8 +1,13 @@
 <h2>My Vacay</h2>
 <div>
-  <label>Naam:</label> <input #vacationName />
-  <button (click)="add(vacationName.value); vacationName.value=''">
-    Add
+  <div class="space">
+    <label>Naam:</label> <input #vacationName />
+  </div>
+  <div class="space">
+    <label>Reden:</label> <input #vacationReason />
+  </div>
+  <button (click)="add(vacationName.value, vacationReason.value); vacationName.value=''; vacationReason.value=''">
+    Toevoegen
   </button>
 </div>
 
@@ -17,7 +22,7 @@
 </ul>
 <div *ngIf="selectedVacation">
   <h2>
-    {{selectedVacation.name}} is je uitgekozen vakantie!
+    Je voorkeur staat op {{selectedVacation.name}}. Voordelen: {{selectedVacation.reason}}.
   </h2>
-  <button (click)="gotoDetail()">View Details</button>
+  <button (click)="gotoDetail()">Overzicht {{selectedVacation.name}}.</button>
 </div>
