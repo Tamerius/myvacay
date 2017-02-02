@@ -41,9 +41,9 @@ export class VacationService {
 	});
   }
 
-  create(name: string): Promise<Vacation> {
+  create(name: string, reason: string): Promise<Vacation> {
     return this.http
-      .post(this.vacationsUrl, JSON.stringify({name: name}), {headers: this.headers})
+      .post(this.vacationsUrl, JSON.stringify({name: name, reason: reason}), {headers: this.headers})
       .toPromise()
       .then(res => res.json().data)
       .catch(this.handleError);
