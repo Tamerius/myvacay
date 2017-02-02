@@ -1,6 +1,6 @@
 <div id="search-component">
-  <h4>Vacation Search</h4>
-  <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
+  <h4>Op zoek naar een vakantie?</h4>
+  <input #searchBox id="search-box" placeholder="Parijs, Duitsland, Amerika.." (keyup)="search(searchBox.value)" />
   <div>
     <div *ngFor="let vacation of vacations | async"
          (click)="gotoDetail(vacation)" class="search-result" >
