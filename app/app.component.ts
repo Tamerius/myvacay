@@ -1,11 +1,8 @@
 import { Component } from '@angular/core';
+
 import { Vacation } from './vacation';
-const VACATIONS: Vacation[] = [
-  { id: 11, name: 'Kos, Greece' },
-  { id: 12, name: 'Terschelling, The Netherlands' },
-  { id: 13, name: 'Paris, France' },
-  { id: 14, name: 'Berlin, Germany' }
-];
+import { VacationService } from './vacation.service';
+
 @Component({
   selector: 'my-app',
   template: `
@@ -29,7 +26,7 @@ const VACATIONS: Vacation[] = [
       margin: 0 0 2em 0;
       list-style-type: none;
       padding: 0;
-      width: 15em;
+      width: 20em;
     }
     .vacations li {
       cursor: pointer;
@@ -68,12 +65,25 @@ const VACATIONS: Vacation[] = [
       margin-right: .8em;
       border-radius: 4px 0 0 4px;
     }
-  `]
+  `],
+  providers: [VacationService]
 })
-export class AppComponent {
+
+export class AppComponent implements OnInit {  
   title = 'My Vacation Options';
-  vacations = VACATIONS;
+  vacations: Vacation[];
   selectedVacation: Vacation;
+
+  constructor(private vacationService: VacationService) { }
+  
+  getVacations(): void {
+    this.vacationService.getVacations().then(vacations => this.vacations = vacations);
+  }
+
+  ngOnInit(): void {
+  	this.getVacations();
+  }
+
   onSelect(vacation: Vacation): void {
     this.selectedVacation = vacation;
   }

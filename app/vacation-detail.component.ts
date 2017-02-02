@@ -7,7 +7,9 @@ import { Vacation } from './vacation';
   template: `
     <div *ngIf="vacation">
       <h2>{{vacation.name}} details!</h2>
-      <div><label>id: </label>{{vacation.id}}</div>
+      <div>
+      	<label>id: </label>{{vacation.id}}
+  	  </div>
       <div>
         <label>name: </label>
         <input [(ngModel)]="vacation.name" placeholder="name"/>
@@ -16,6 +18,5 @@ import { Vacation } from './vacation';
   `
 })
 export class VacationDetailComponent {
-  @Input()
-  vacation: Vacation;
+  @Input() vacation: Vacation;
 }
