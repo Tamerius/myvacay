@@ -1,0 +1,14 @@
+<h2>My Vacation Options</h2>
+<ul class="vacations">
+  <li *ngFor="let vacation of vacations"
+    [class.selected]="vacation === selectedVacation"
+    (click)="onSelect(vacation)">
+    <span class="badge">{{vacation.id}}</span> {{vacation.name}}
+  </li>
+</ul>
+<div *ngIf="selectedVacation">
+  <h2>
+    {{selectedVacation.name | uppercase}} is the chosen vacation
+  </h2>
+  <button (click)="gotoDetail()">View Details</button>
+</div>

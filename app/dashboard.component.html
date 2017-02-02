@@ -1,0 +1,8 @@
+<h3>Top Vacations</h3>
+<div class="grid grid-pad">
+  <a *ngFor="let vacation of vacations"  [routerLink]="['/detail', vacation.id]"  class="col-1-4">
+    <div class="module vacation">
+      <h4>{{vacation.name}}</h4>
+    </div>
+  </a>
+</div>
