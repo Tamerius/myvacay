@@ -23,6 +23,25 @@ export class VacationsComponent implements OnInit {
     this.vacationService.getVacations().then(vacations => this.vacations = vacations);
   }
 
+  add(name: string): void {
+    name = name.trim();
+    if (!name) { return; }
+    this.vacationService.create(name)
+      .then(vacation => {
+        this.vacations.push(vacation);
+        this.selectedVacation = null;
+      });
+  }
+
+  delete(vacation: Vacation): void {
+    this.vacationService
+        .delete(vacation.id)
+        .then(() => {
+          this.vacations = this.vacations.filter(h => h !== vacation);
+          if (this.selectedVacation === vacation) { this.selectedVacation = null; }
+        });
+  }
+
   ngOnInit(): void {
   	this.getVacations();
   }

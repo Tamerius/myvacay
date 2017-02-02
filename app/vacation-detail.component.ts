@@ -30,4 +30,10 @@ export class VacationDetailComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
+
+  save(): void {
+    this.vacationService.update(this.vacation)
+      .then(() => this.goBack());
+  }
+
 }
