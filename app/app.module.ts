@@ -1,10 +1,11 @@
-import { NgModule }      from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule }   from '@angular/forms';
+import { NgModule }       from '@angular/core';
+import { BrowserModule }  from '@angular/platform-browser';
+import { FormsModule }    from '@angular/forms';
 
-import { AppComponent }  from './app.component';
+import { AppComponent }        from './app.component';
 import { VacationDetailComponent } from './vacation-detail.component';
-
+import { VacationsComponent }     from './vacations.component';
+import { VacationService }         from './vacation.service';
 @NgModule({
   imports: [
     BrowserModule,
@@ -12,8 +13,13 @@ import { VacationDetailComponent } from './vacation-detail.component';
   ],
   declarations: [
     AppComponent,
-    VacationDetailComponent
+    VacationDetailComponent,
+    VacationsComponent
+  ],
+  providers: [
+    VacationService
   ],
   bootstrap: [ AppComponent ]
 })
-export class AppModule { }
+export class AppModule {
+}
