@@ -1,9 +1,18 @@
 <h2>My Vacation Options</h2>
+<div>
+  <label>Vacation name:</label> <input #vacationName />
+  <button (click)="add(vacationName.value); vacationName.value=''">
+    Add
+  </button>
+</div>
+
 <ul class="vacations">
   <li *ngFor="let vacation of vacations"
     [class.selected]="vacation === selectedVacation"
     (click)="onSelect(vacation)">
     <span class="badge">{{vacation.id}}</span> {{vacation.name}}
+    <button class="delete"
+      (click)="delete(vacation); $event.stopPropagation()">x</button>
   </li>
 </ul>
 <div *ngIf="selectedVacation">
