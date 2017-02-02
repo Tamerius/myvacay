@@ -23,11 +23,12 @@ export class VacationsComponent implements OnInit {
     this.vacationService.getVacations().then(vacations => this.vacations = vacations);
   }
 
-  add(name: string, reason: string): void {
+  add(name: string, reason: string, disadvantage: string): void {
     name = name.trim();
     reason = reason.trim();
-    if (!name || !reason) { return; }
-    this.vacationService.create(name, reason)
+    disadvantage = disadvantage.trim();
+    if (!name || !reason || !disadvantage) { return; }
+    this.vacationService.create(name, reason, disadvantage)
       .then(vacation => {
         this.vacations.push(vacation);
         this.selectedVacation = null;

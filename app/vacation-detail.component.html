@@ -4,12 +4,16 @@
   	<label>id: </label>{{vacation.id}}
   </div>
   <div>
-    <label>naam: </label>
+    <label>Naam: </label>
     <input [(ngModel)]="vacation.name" placeholder="naam"/>
   </div>
   <div>
-    <label>reden: </label>
+    <label>Reden: </label>
     <input [(ngModel)]="vacation.reason" placeholder="reden"/>
+  </div>
+  <div>
+    <label>Nadeel: </label>
+    <input [(ngModel)]="vacation.disadvantage" placeholder="nadeel"/>
   </div>
   <button (click)="goBack()">Back</button>
   <button (click)="save()">Save</button>

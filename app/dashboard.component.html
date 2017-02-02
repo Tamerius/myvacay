@@ -6,7 +6,7 @@
 
 <vacation-search></vacation-search>
 
-<h3>Uitgelichte vakanties om alvast in de stemming te komen.</h3>
+<h3 class="spacetop">Uitgelichte vakanties om alvast in de stemming te komen.</h3>
 <div class="grid grid-pad">
   <a *ngFor="let vacation of vacations"  [routerLink]="['/detail', vacation.id]"  class="col-1-4">
     <div class="module vacation">

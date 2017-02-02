@@ -23,3 +23,7 @@ body, input[text], button {
   text-align: center;
   margin: 0 auto;
 }
+
+.spacetop {
+  margin-top: 2em;
+}
